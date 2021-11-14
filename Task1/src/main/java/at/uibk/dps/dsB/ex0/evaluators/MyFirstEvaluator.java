@@ -1,5 +1,6 @@
 package at.uibk.dps.dsB.ex0.evaluators;
 
+import at.uibk.dps.dsB.ex0.decoders.IncomeObject;
 import org.opt4j.core.Objective;
 import org.opt4j.core.Objective.Sign;
 import org.opt4j.core.Objectives;
@@ -10,7 +11,7 @@ import org.opt4j.core.problem.Evaluator;
  * The {@link Evaluator} class which will be used to evaluate the phenotypes
  * returned by the {@link Decoder}.
  * 
- * @author Fedor Smirnov
+ * @author Christoph Haas
  *
  */
 public class MyFirstEvaluator implements Evaluator<Object> {
@@ -34,7 +35,14 @@ public class MyFirstEvaluator implements Evaluator<Object> {
 	 * @return the fitness of the given phenotype
 	 */
 	protected double calculatePhenotypeFitness(Object phenotype) {
-		// TODO Implement the fitness calculation for your problem
-		throw new IllegalArgumentException("Fitness calculation not yet implemented.");
+		IncomeObject income = (IncomeObject) phenotype;
+
+
+		// Calculate net / gross ratio and levies / gross ratio
+		double netGrossRatio = income.getNetIncome() / income.getGrossIncome();
+		double leviesGrossRatio = income.getLevies() / income.getGrossIncome();
+
+		// Ideal ratio: netGrossRatio = 1 and leviesGrossRatio = 0
+		return netGrossRatio - leviesGrossRatio;
 	}
 }
