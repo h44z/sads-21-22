@@ -1,11 +1,14 @@
 package at.uibk.dps.dsB.ex0.evaluators;
 
+import at.uibk.dps.dsB.ex0.IncomeProblem;
 import at.uibk.dps.dsB.ex0.decoders.IncomeObject;
 import org.opt4j.core.Objective;
 import org.opt4j.core.Objective.Sign;
 import org.opt4j.core.Objectives;
 import org.opt4j.core.problem.Decoder;
 import org.opt4j.core.problem.Evaluator;
+
+import javax.inject.Inject;
 
 /**
  * The {@link Evaluator} class which will be used to evaluate the phenotypes
@@ -15,8 +18,14 @@ import org.opt4j.core.problem.Evaluator;
  *
  */
 public class MyFirstEvaluator implements Evaluator<Object> {
-
+	protected final IncomeProblem problem;
 	protected final Objective myObjective = new Objective("Objective to maximize", Sign.MAX);
+
+	@Inject
+	public MyFirstEvaluator(IncomeProblem problem) {
+		this.problem = problem;
+	}
+
 
 	@Override
 	public Objectives evaluate(Object phenotype) {
@@ -43,6 +52,6 @@ public class MyFirstEvaluator implements Evaluator<Object> {
 		double leviesGrossRatio = income.getLevies() / income.getGrossIncome();
 
 		// Ideal ratio: netGrossRatio = 1 and leviesGrossRatio = 0
-		return netGrossRatio - leviesGrossRatio;
+		return (income.getGrossIncome() / problem.getMaxGrossIncome() / 100) + netGrossRatio - leviesGrossRatio;
 	}
 }

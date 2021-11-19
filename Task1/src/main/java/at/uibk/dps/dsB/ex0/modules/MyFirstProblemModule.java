@@ -30,7 +30,7 @@ public class MyFirstProblemModule extends ProblemModule {
 	@Info("Annual minimal gross income.")
 	@Order(0)
 	@Constant(value = "minIncome", namespace = IncomeProblem.class)
-	protected double minGrossIncome = 20000.0;
+	protected double minGrossIncome = 1.0;
 
 	@Info("Annual maximal gross income.")
 	@Order(1)
