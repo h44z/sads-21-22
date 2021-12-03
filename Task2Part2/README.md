@@ -25,7 +25,7 @@ After recording and subsequently preprocessing the video, an object recognition 
 
 *Architecture*
 
-For the implementation of the PID3000, Bob can choose between a smart and a normal camera, which can be connected to a router either via cable or via a wireless connection. Moreover, the tasks of the PID3000 can be implemented on different types of resources offered by 2 different cloud providers.
+For the implementation of the PIW3000, Bob can choose between a smart and a normal camera, which can be connected to a router either via cable or via a wireless connection. Moreover, the tasks of the PIW3000 can be implemented on different types of resources offered by 2 different cloud providers.
 
 #### (Anti-immersive) Task Notes
 

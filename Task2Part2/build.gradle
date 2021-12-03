@@ -30,6 +30,12 @@ mainClassName = 'org.opt4j.core.start.Opt4J'
 group 'importance'
 version '1.0-SNAPSHOT'
 
+sourceCompatibility = 1.14
+targetCompatibility = 1.14
+
+tasks.withType( JavaCompile ).configureEach {
+	options.forkOptions.jvmArgs.addAll( ['--add-opens', 'jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED'] )
+}
 
 repositories {
 	maven {
