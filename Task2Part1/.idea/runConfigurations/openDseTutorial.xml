@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="openDseTutorial" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="org.opt4j.core.start.Opt4J" />
+    <module name="Task2Part1.main" />
+    <option name="PROGRAM_PARAMETERS" value="configs/tutorial.xml" />
+    <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
